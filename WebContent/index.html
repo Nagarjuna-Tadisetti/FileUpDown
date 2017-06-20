@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>File Up Down</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js" integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
+  <style>
+  body {
+      color: #f5f6f7;
+  }
+  .margin {
+      margin-bottom: 20px;
+  }
+  .bg-1 { 
+      background-color: #1abc9c; /* Green */
+      color: #ffffff;
+  }
+  .bg-2 { 
+      background-color: #2f2f2f; /* Black Gray */
+      color: #fff;
+  }
+  .container-fluid {
+      padding-top: 70px;
+      padding-bottom: 70px;
+  }
+ 
+  </style>
+</head>
+<body>
+
+<!-- First Container -->
+<div class="container-fluid bg-1 text-center" style="height:530px;padding:140px">  
+  <div class="row">
+    <div class="col-sm-6">
+      <h3 class="margin">Upload</h3>
+        <form id="up" method="post"  action="Upload" enctype="multipart/form-data">
+            <label class="custom-file">
+                <input type="file" name="fname" id="file" class="custom-file-input" >
+                <span class="custom-file-control"></span>
+            </label>            
+            <br><br>
+            <input type="submit" class="btn btn-info" value="Upload"/>
+        </form>
+    </div>
+    <div class="col-sm-6">
+      <h3>Download</h3>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+<footer class="container-fluid bg-2 text-center" style="height:100px">
+  <p>A Cloud Storage Service by ABC Company</p> 
+</footer>
+<script>    
+</script>
+</body>
+</html>
