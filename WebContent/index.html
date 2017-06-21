@@ -35,7 +35,7 @@
   <div class="row">
     <div class="col-sm-6">
       <h3 class="margin">Upload</h3>
-        <form id="up" method="post"  action="Upload" enctype="multipart/form-data">
+        <form method="post"  action="Upload" enctype="multipart/form-data">
             <label class="custom-file">
                 <input type="file" name="fname" id="file" class="custom-file-input" >
                 <span class="custom-file-control"></span>
@@ -45,7 +45,13 @@
         </form>
     </div>
     <div class="col-sm-6">
-      <h3>Download</h3>
+      <h3 class="margin">Download</h3>
+        <form action="Download" method="get">
+            <select id="fileSelect" name="fname" class="form-control">
+            <option value="">None Selected</option>
+            </select><br>
+            <input type="submit" class="btn btn-info" value="Donwload"/>
+        </form>
     </div>
   </div>
 </div>
@@ -53,7 +59,20 @@
 <footer class="container-fluid bg-2 text-center" style="height:100px">
   <p>A Cloud Storage Service by ABC Company</p> 
 </footer>
-<script>    
+<script>
+$(document).ready(function(){
+    $("#fileSelect").click(function(){
+        $.getJSON("FileNames", function(result){
+            var filesnames = result.files;
+            var $select = $('#fileSelect');
+            for(var i in filesnames) {
+                var id = filesnames[i];
+                var $option = $("<option/>").attr("value", id).text(id);
+                $select.append($option);
+            }
+    }); 
+});
+});
 </script>
 </body>
 </html>

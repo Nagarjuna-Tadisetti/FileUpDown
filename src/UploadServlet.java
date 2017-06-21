@@ -13,19 +13,8 @@ public void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {  
 	
 	MultipartRequest m=new MultipartRequest(request,"d:\\myfiles");
-	String filename = null;
-	for(java.util.Enumeration e=m.getFileNames(); e.hasMoreElements();)
-    {
-		filename=m.getFilesystemName((String)e.nextElement());
-    }
-	
-	try{
-		Db.fileDbInsert(filename, "d:\\\\myfiles");
-	}catch(Exception e){
-		System.out.println(e.getMessage());
-	}
 	 RequestDispatcher rd=request.getRequestDispatcher("/index.html");  
      rd.include(request, response);  
-	
+     
 	}  
 }

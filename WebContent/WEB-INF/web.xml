@@ -11,10 +11,24 @@
     <file-size-threshold>1048576</file-size-threshold>
 </multipart-config>
 </servlet>  
-  
 <servlet-mapping>  
 <servlet-name>UploadServlet</servlet-name>  
 <url-pattern>/Upload</url-pattern>  
 </servlet-mapping>  
-  
+<servlet>  
+<servlet-name>DownloadServlet</servlet-name>  
+<servlet-class>Download</servlet-class> 
+</servlet>
+<servlet-mapping>  
+<servlet-name>DownloadServlet</servlet-name>  
+<url-pattern>/Download</url-pattern>  
+</servlet-mapping>  
+  <servlet>  
+<servlet-name>FileNamesServlet</servlet-name>  
+<servlet-class>FileNames</servlet-class> 
+</servlet>
+<servlet-mapping>  
+<servlet-name>FileNamesServlet</servlet-name>  
+<url-pattern>/FileNames</url-pattern>  
+</servlet-mapping> 
 </web-app>  
