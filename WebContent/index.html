@@ -25,6 +25,9 @@
       padding-top: 70px;
       padding-bottom: 70px;
   }
+  #fileUpButton {
+    margin-left: 155px;
+  }
  
   </style>
 </head>
@@ -36,12 +39,12 @@
     <div class="col-sm-6">
       <h3 class="margin">Upload</h3>
         <form method="post"  action="Upload" enctype="multipart/form-data">
-            <label class="custom-file">
-                <input type="file" name="fname" id="file" class="custom-file-input" >
-                <span class="custom-file-control"></span>
+            <label class="custom-file col-sm-4" id="fileUpButton">
+                <label for="files" class="btn btn-secondary" id="fileLabel">Select File</label>
+                <input type="file" name="fname" id="files"  style="visibility:hidden;">
             </label>            
             <br><br>
-            <input type="submit" class="btn btn-info" value="Upload"/>
+            <input type="submit" class="btn btn-outline-primary" value="Upload"/>
         </form>
     </div>
     <div class="col-sm-6">
@@ -50,7 +53,7 @@
             <select id="fileSelect" name="fname" class="form-control">
             <option value="">None Selected</option>
             </select><br>
-            <input type="submit" class="btn btn-info" value="Donwload"/>
+            <input type="submit" class="btn btn-outline-primary" value="Donwload"/>
         </form>
     </div>
   </div>
@@ -64,14 +67,27 @@ $(document).ready(function(){
     $("#fileSelect").click(function(){
         $.getJSON("FileNames", function(result){
             var filesnames = result.files;
+
+            var selectbox = document.getElementById("fileSelect");
+            
+            if(selectbox.options.length==1){
             var $select = $('#fileSelect');
             for(var i in filesnames) {
                 var id = filesnames[i];
                 var $option = $("<option/>").attr("value", id).text(id);
                 $select.append($option);
             }
-    }); 
-});
+            }
+            
+        }); 
+    });
+    
+$('input:file').change(
+    function(e){
+        console.log(e.target.files[0].name);
+        document.getElementById('fileLabel').innerHTML = e.target.files[0].name;
+    });
+    
 });
 </script>
 </body>
